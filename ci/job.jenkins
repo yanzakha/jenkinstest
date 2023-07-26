@@ -24,7 +24,9 @@ pipeline {
 
         stage('Push changes to GitHub') {
             steps {
-                sh 'git push origin main'
+                withCredentials([gitUsernamePassword(credentialsId: 'github_access_key', gitToolName: 'git-tool')]) {
+                  sh 'git push origin main'
+                }
             }
         }
     }
