@@ -16,7 +16,7 @@ pipeline {
 
         stage('Add log entry and commit changes') {
             steps {
-                sh "echo ${date -I} - PRjob executed >> job.log"
+                sh 'echo ${date -I} - PRjob executed >> job.log'
                 sh 'git add job.log'
                 sh '  git config --global user.email "zakharov.ian1@gmail.com"'
                 sh 'git config --global user.name "Yan"'
