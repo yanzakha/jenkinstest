@@ -18,6 +18,8 @@ pipeline {
             steps {
                 sh "echo date - PRjob executed >> job.log"
                 sh 'git add job.log'
+                sh '  git config --global user.email "zakharov.ian1@gmail.com"'
+                sh 'git config --global user.name "Yan"'
                 sh 'git commit -m "New run"'
             }
         }
