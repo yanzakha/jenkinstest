@@ -1,1 +1,31 @@
+pipeline {
+    agent any
 
+    stages {
+        stage('Clone repository') {
+            steps {
+                git credentialsId: 'github_access_key', url: 'https://github.com/yanzakha/jenkinstest.git', branch: 'main'
+            }
+        }
+
+        stage('Create log file') {
+            steps {
+                sh 'touch job.log'
+            }
+        }
+
+        stage('Add log entry and commit changes') {
+            steps {
+                sh "echo date - PRjob executed >> job.log"
+                sh 'git add job.log'
+                sh 'git commit -m "New run"'
+            }
+        }
+
+        stage('Push changes to GitHub') {
+            steps {
+                sh 'git push origin main'
+            }
+        }
+    }
+}
