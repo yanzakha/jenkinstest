@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone repository') {
             steps {
-                git credentialsId: 'github_secret', url: 'https://github.com/yanzakha/jenkinstest.git', branch: 'main'
+                git credentialsId: '1', url: 'https://github.com/yanzakha/jenkinstest.git', branch: 'main'
             }
         }
 
@@ -26,7 +26,7 @@ pipeline {
 
         stage('Push changes to GitHub') {
             steps {
-                withCredentials([gitUsernamePassword(credentialsId: 'github_secret', gitToolName: 'default')]) {
+                withCredentials([gitUsernamePassword(credentialsId: '1', gitToolName: 'default')]) {
                   sh 'git push origin main'
                 }
             }
