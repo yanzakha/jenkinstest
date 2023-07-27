@@ -35,7 +35,7 @@ pipeline {
         post {
             always {
                 emailext body: '${DEFAULT_CONTENT}', 
-                to: 'zakharov.ian1@gmail.com', 
+                to: 'gurov@surf.dev', 
                 subject: 'Yan Zakharau Pipeline is ${BUILD_STATUS}'
             }
         }
