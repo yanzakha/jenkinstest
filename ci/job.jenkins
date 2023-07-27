@@ -10,6 +10,7 @@ pipeline {
 
         stage('Create log file') {
             steps {
+                sh 'rm job.log'
                 sh 'touch job.log'
             }
         }
