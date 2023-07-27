@@ -34,7 +34,7 @@ pipeline {
     }
         post {
             always {
-                emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test ${BUILD_STATUS}'
+                emailext body: 'Yan Zakharau Pipeline is ${BUILD_STATUS}', recipientProviders: [[$class: 'RequesterRecipientProvider']], subject: 'Yan Zakharau Pipeline is ${BUILD_STATUS}/nhttps://github.com/yanzakha/jenkinstest'
             }
         }
     
