@@ -34,8 +34,8 @@ pipeline {
     }
         post {
             always {
-                emailext body: """Yan Zakharau Pipeline is ${BUILD_STATUS}
-                                https://github.com/yanzakha/jenkinstest""", 
+                emailext body: 'Yan Zakharau Pipeline is ${BUILD_STATUS}
+                                https://github.com/yanzakha/jenkinstest', 
                 recipientProviders: [[$class: 'RequesterRecipientProvider']], 
                 subject: 'Yan Zakharau Pipeline is ${BUILD_STATUS}'
             }
